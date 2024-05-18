@@ -14,3 +14,13 @@ __pycache__/
 # Generated C files
 lib/utils/*.c
 
+# Data
+data/
+
+# Outputs
+Outputs/
+
+# Weights
+detection_models/ 
+trained_models/
+
