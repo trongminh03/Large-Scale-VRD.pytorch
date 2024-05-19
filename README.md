@@ -24,6 +24,31 @@ We borrowed the framework from [Detectron.pytorch](https://github.com/roytseng-t
 
 \[2\] [Yang, Jianwei, et al. "Graph r-cnn for scene graph generation." Proceedings of the European Conference on Computer Vision (ECCV). 2018.](http://openaccess.thecvf.com/content_ECCV_2018/html/Jianwei_Yang_Graph_R-CNN_for_ECCV_2018_paper.html)
 
+## Run Docker 
+- Build image: 
+```
+docker build -t ["IMAGE_NAME"] .
+```
+- Example: 
+```
+docker build -t pytorch-conda:0.4.1-cuda9-cudnn7-devel .
+```
+
+- Run the image: 
+``` 
+docker run -it --gpus all -v ["DIRECTION_TO_CURRENT_FOLDER"]:["DIRECTION_IN_CONTAINER"] ["IMAGE_NAME"] bash 
+```
+
+- Example: 
+```
+docker run -it --gpus all -v /work/hpc/trongminh/Large-Scale-VRD.pytorch/:/workspace/Large-Scale-VRD.pytorch pytorch/pytorch:0.4.1-cuda9-cudnn7 bash
+```
+
+- Next time running: 
+```
+docker exec -it ["CONTAINER_ID"] bash
+```
+
 ## Requirements
 * Python 3
 * Python packages
