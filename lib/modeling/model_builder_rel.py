@@ -71,10 +71,12 @@ def get_obj_prd_vecs(dataset_name):
         cfg.DATA_DIR + '/word2vec_model/GoogleNews-vectors-negative300.bin', binary=True)
     logger.info('Model loaded.')
     # change everything into lowercase
-    all_keys = list(word2vec_model.vocab.keys())
+    # all_keys = list(word2vec_model.vocab.keys()) 
+    all_keys = list(word2vec_model.index_to_key)
     for key in all_keys:
         new_key = key.lower()
-        word2vec_model.vocab[new_key] = word2vec_model.vocab.pop(key)
+        # word2vec_model.vocab[new_key] = word2vec_model.vocab.pop(key) 
+        word2vec_model.index_to_key[word2vec_model.key_to_index[key]] = new_key
     logger.info('Wiki words converted to lowercase.')
 
     if dataset_name.find('vrd') >= 0:
@@ -104,7 +106,9 @@ def get_obj_prd_vecs(dataset_name):
     for r, prd_cat in enumerate(prd_cats):
         prd_words = prd_cat.split()
         for word in prd_words:
-            raw_vec = word2vec_model[word]
+            if word not in word2vec_model:
+                print("word not in word2vec_model: ", word)
+                continue
             all_prd_vecs[r] += (raw_vec / la.norm(raw_vec))
         all_prd_vecs[r] /= len(prd_words)
     logger.info('Predicate label vectors loaded.')
