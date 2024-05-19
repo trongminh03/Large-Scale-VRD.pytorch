@@ -52,7 +52,8 @@ def process_in_parallel(
         yaml.dump(cfg, stream=f)
     subprocess_env = os.environ.copy()
     processes = []
-    NUM_GPUS = torch.cuda.device_count()
+    # NUM_GPUS = torch.cuda.device_count() 
+    NUM_GPUS = 1
     subinds = np.array_split(range(total_range_size), NUM_GPUS)
     # Determine GPUs to use
     cuda_visible_devices = os.environ.get('CUDA_VISIBLE_DEVICES')

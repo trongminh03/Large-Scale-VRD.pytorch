@@ -68,7 +68,7 @@ if __name__ == '__main__':
     logger.info('Called with args:')
     logger.info(args)
 
-    assert (torch.cuda.device_count() == 1) ^ bool(args.multi_gpu_testing)
+    # assert (torch.cuda.device_count() == 1) ^ bool(args.multi_gpu_testing)
 
     assert bool(args.load_ckpt) ^ bool(args.load_detectron), \
         'Exactly one of --load_ckpt and --load_detectron should be specified.'

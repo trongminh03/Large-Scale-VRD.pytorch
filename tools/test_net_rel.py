@@ -77,7 +77,7 @@ if __name__ == '__main__':
     logger.info('Called with args:')
     logger.info(args)
 
-    assert (torch.cuda.device_count() == 1) ^ bool(args.multi_gpu_testing)
+    # assert (torch.cuda.device_count() == 1) ^ bool(args.multi_gpu_testing)
 
     cfg.VIS = args.vis
 
