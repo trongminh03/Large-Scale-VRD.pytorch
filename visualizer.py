@@ -20,8 +20,8 @@ import numpy as np
 
 rel_detections_ckpt_path = "Outputs/e2e_relcnn_VGG16_8_epochs_vrd_y_loss_only/rel_detections.pkl"
 output_image_path = "test/output_image.jpg"
-object_labels_path = "data/vrd/objects.json"
-predicate_labels_path = "data/vrd/predicates.json"
+object_labels_path = "vrd/data/vrd/objects.json"
+predicate_labels_path = "vrd/data/vrd/predicates.json"
 
 with open(rel_detections_ckpt_path, "rb") as f: 
     data = pickle.load(f) 
@@ -59,6 +59,8 @@ def draw_boxes(image, sbj_boxes, sbj_labels, obj_boxes, obj_labels, prd_labels):
         pred_text_x = pred_center_x - 50
         pred_text_y = pred_center_y - 10
 
+        print(f"Subject: {object_labels[sbj_label]}, Object: {object_labels[obj_label]}, Predicate: {predicates[prd_label]}")
+
         prd_tuple = (tuple(sbj_box), prd_label, tuple(obj_box))
         if prd_tuple not in drawn_prds:
             drawn_prds.add(prd_tuple)
@@ -91,7 +93,7 @@ def draw_boxes(image, sbj_boxes, sbj_labels, obj_boxes, obj_labels, prd_labels):
     opacity = 0.6  # Adjust opacity as needed
     cv2.addWeighted(overlay, opacity, image, 1 - opacity, 0, image)
 
-data = data[19]
+data = data[60]
 
 gt_sbj_boxes = data['gt_sbj_boxes']
 gt_sbj_labels = data['gt_sbj_labels']
@@ -99,7 +101,7 @@ gt_obj_boxes = data['gt_obj_boxes']
 gt_obj_labels = data['gt_obj_labels']
 gt_prd_labels = data['gt_prd_labels']
 
-image_path = data['image'].replace('/workspace/Large-Scale-VRD.pytorch/data', 'data')
+image_path = data['image'].replace('/workspace/Large-Scale-VRD.pytorch/data', 'vrd/data')
 
 image = cv2.imread(image_path)
 

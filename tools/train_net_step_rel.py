@@ -148,6 +148,7 @@ def main():
 
     if args.cuda or cfg.NUM_GPUS > 0:
         cfg.CUDA = True
+        # print("NUM_GPUs", cfg.NUM_GPUS)
     else:
         raise ValueError("Need Cuda device to run !")
 
@@ -172,7 +173,8 @@ def main():
     original_num_gpus = cfg.NUM_GPUS
     if args.batch_size is None:
         args.batch_size = original_batch_size
-    cfg.NUM_GPUS = torch.cuda.device_count()
+    # cfg.NUM_GPUS = torch.cuda.device_count()
+    cfg.NUM_GPUS = 1
     assert (args.batch_size % cfg.NUM_GPUS) == 0, \
         'batch_size: %d, NUM_GPUS: %d' % (args.batch_size, cfg.NUM_GPUS)
     cfg.TRAIN.IMS_PER_BATCH = args.batch_size // cfg.NUM_GPUS

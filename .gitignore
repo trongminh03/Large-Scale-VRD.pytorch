@@ -24,3 +24,5 @@ Outputs/
 detection_models/ 
 trained_models/
 
+#Test
+test/

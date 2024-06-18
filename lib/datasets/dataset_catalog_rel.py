@@ -62,24 +62,44 @@ DATASETS = {
             _DATA_DIR + '/vg/predicates.json',
     },
     # VRD dataset
+    # 'vrd_train': {
+    #     IM_DIR:
+    #         _DATA_DIR + '/vrd/train_images',
+    #     ANN_FN:
+    #         _DATA_DIR + '/vrd/detections_train.json',
+    #     ANN_FN2:
+    #         _DATA_DIR + '/vrd/new_annotations_train.json',
+    #     ANN_FN3:
+    #         _DATA_DIR + '/vrd/predicates.json',
+    # },
+    # 'vrd_val': {
+    #     IM_DIR:
+    #         _DATA_DIR + '/vrd/val_images',
+    #     ANN_FN:
+    #         _DATA_DIR + '/vrd/detections_val.json',
+    #     ANN_FN2:
+    #         _DATA_DIR + '/vrd/new_annotations_val.json',
+    #     ANN_FN3:
+    #         _DATA_DIR + '/vrd/predicates.json',
+    # },
     'vrd_train': {
         IM_DIR:
-            _DATA_DIR + '/vrd/train_images',
+            _DATA_DIR + '/../vrd/data/vrd/train_images',
         ANN_FN:
-            _DATA_DIR + '/vrd/detections_train.json',
+            _DATA_DIR + '/../vrd/data/vrd/detections_train.json',
         ANN_FN2:
-            _DATA_DIR + '/vrd/new_annotations_train.json',
+            _DATA_DIR + '/../vrd/data/vrd/new_annotations_train.json',
         ANN_FN3:
-            _DATA_DIR + '/vrd/predicates.json',
+            _DATA_DIR + '/../vrd/data/vrd/predicates.json',
     },
     'vrd_val': {
         IM_DIR:
-            _DATA_DIR + '/vrd/val_images',
+            _DATA_DIR + '/../vrd/data/vrd/val_images',
         ANN_FN:
-            _DATA_DIR + '/vrd/detections_val.json',
+            _DATA_DIR + '/../vrd/data/vrd/detections_val.json',
         ANN_FN2:
-            _DATA_DIR + '/vrd/new_annotations_val.json',
+            _DATA_DIR + '/../vrd/data/vrd/new_annotations_val.json',
         ANN_FN3:
-            _DATA_DIR + '/vrd/predicates.json',
+            _DATA_DIR + '/../vrd/data/vrd/predicates.json',
     },
 }
